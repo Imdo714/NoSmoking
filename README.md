@@ -5,7 +5,7 @@
 > css가 많이 부족한거 같다 이제 프로트 쪽도 공부를 많이 하여 이쁘게 만들어야 겠다.
 
 ## 프로젝트 개요
-- 개발 기간: 2024-01-15 ~ 2024-03-08
+- 개발 기간: 2024-01-05 ~ 2024-03-08
 
 ## 기술 스택
 `Front-End` :  <img src="https://img.shields.io/badge/javascript-3178C6?style=flat-square&logo=javascript&logoColor=#F7DF1E"/>
