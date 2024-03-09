@@ -38,7 +38,7 @@
  - https://github.com/Imdo714/NoSmoking/wiki/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4
  - -해당 SQL 적용
 ## 주요 기능
-
+https://www.notion.so/dc71ffe4c1a14c818596d8d9a0500836
 
 ### ✏ 서비스
 
