@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 	<mapper namespace="videoMapper">
+  
+  	<resultMap type="Video" id="videoResult">
+		<result column="VIDEO_NO" property="videoNo" />
+		<result column="VIEDO_CONTENT" property="videoContent" />
+		<result column="VIDEO_URL" property="videoUrl" />
+		<result column="USER_NO" property="userNo" />
+		<result column="USER_NAME" property="userName" />
+	</resultMap>
+	
+	<!-- 자료실 비디오 등록 -->
+	<insert id="videoUpload" parameterType="map">
+		INSERT INTO 
+			   VIDEO(
+					   VIDEO_NO,
+					   VIEDO_CONTENT,
+					   VIDEO_URL,
+					   USER_NO
+					   )
+				 VALUES(
+				 		SEQ_VIDEO.NEXTVAL,
+				 		#{title},
+				 		#{srcAttributeValue},
+				 		#{userNo}
+				 		)
+	</insert>
+	
+	<!-- 자료실 리스트 갯수 -->
+	<select id="selectVideoCount" resultType="_int">
+		SELECT COUNT(*)
+		  FROM VIDEO
+	</select>
+	
+	<!-- 자료실 리스트 가져오기 -->
+	<select id="videoListAll" resultMap="videoResult">
+		SELECT *
+			FROM(
+			        SELECT ROWNUM RNUM, A.*
+			        FROM (
+			                SELECT VIDEO_NO
+		                          ,VIEDO_CONTENT
+		                          ,VIDEO_URL
+		                          ,USER_NO
+		                          ,USER_NAME
+		                      FROM VIDEO
+		                      JOIN MEMBER USING(USER_NO)
+		                  ORDER BY VIDEO_NO DESC
+			            ) A
+			        )
+	</select>
+	
+	<!-- 자료실 디테일 -->
+	<select id="videoDetail" resultMap="videoResult">
+		SELECT VIDEO_NO,
+		       VIEDO_CONTENT,
+		       VIDEO_URL,
+		       USER_NO
+		  FROM VIDEO
+		 WHERE VIDEO_NO = #{videoNo}
+	</select>
+	
+	</mapper>

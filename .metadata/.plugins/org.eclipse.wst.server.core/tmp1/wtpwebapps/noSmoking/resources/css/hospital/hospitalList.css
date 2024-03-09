@@ -1,0 +1,106 @@
+@charset "UTF-8";
+.hospital-center{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+.hospital-No{
+    width: 900px;
+    display: flex;
+    padding-bottom: 50px;
+}
+.pont-se{
+    font-size: 37px;
+    margin-top: 20px;
+}
+.search-div{
+    width: 930px;
+    height: 60px;
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+}
+.search-title{
+    display: flex;
+    width: 150px;
+    height: 37px;
+}
+.check-div{
+    font-size: 26px;
+}
+.search-input{
+    width: 297px;
+    height: 37px;
+    font-size: 16px;
+}
+.search-btn{
+    height: 41px;
+    width: 62px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(94, 94, 94);
+    border: 0px;
+}
+.search-title2{
+    display: flex;
+    width: 353px;
+    height: 37px;
+    margin-left: 60px;
+}
+.table {
+    border: 1px solid rebeccapurple;
+    width: 942px;
+    border-collapse: collapse; 
+    margin-top: 60px;
+}
+.table-addres {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table th, .table td {
+    padding: 10px; /* 셀 안의 여백을 추가 */
+    margin: 10px;
+    border: 5px solid white; /* 각 <tr>에 대한 경계를 설정 */
+}
+.table th{
+    border: 5px solid white;
+}
+.table-title{
+    background-color: rgb(227, 101, 13);
+}
+.table tbody th, .table tbody td {
+    background-color: rgb(224, 224, 224);
+}
+.num-btn{
+    background-color: cornsilk;
+    margin: 2px;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+@media screen and (max-width: 600px) {
+    .search-div {
+        width: 100%;
+        padding: 10px;
+        /* flex-direction: column; */
+    }
+
+    .search-title {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-input {
+        width: 140px;
+    }
+
+    .search-btn {
+        width: 56px;
+    }
+    .check-div {
+        font-size: 12px;
+    }
+}

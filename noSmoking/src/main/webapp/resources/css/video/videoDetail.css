@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.detail-center{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+.detail-img{
+    width: 700px;
+    height: 500px;
+}
+.text-detail{
+    border: 1px solid black;
+    width: 700px;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.detail-btn{
+    width: 150px;
+    height: 40px;
+    background-color: rgb(52, 152, 219);
+    border: none;
+    color: aliceblue;
+}

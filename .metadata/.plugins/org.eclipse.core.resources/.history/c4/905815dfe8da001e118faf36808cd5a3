@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="memberMapper">
+  
+    <resultMap type="Member" id="memberResult">
+		<result column="USER_NO" property="userNo" />
+		<result column="USER_ID" property="userId" />
+		<result column="USER_PWD" property="userPwd" />
+		<result column="USER_NAME" property="userName" />
+		<result column="USER_GENDER" property="gender" />
+		<result column="USER_BIRTH" property="age" />
+		<result column="USER_PHONE" property="phone" />
+		<result column="USER_ADDRESS" property="address" />
+	</resultMap>
+
+	<resultMap type="Writer" id="writerResult">
+		<result column="WRITER_NO" property="writerNo" />
+		<result column="USER_NO" property="userNo" />
+	</resultMap>
+  
+  	<!-- 회원가입 -->
+  	<insert id="insertMember">
+		INSERT INTO MEMBER(
+			USER_NO,
+			USER_ID ,
+			USER_PWD ,
+			USER_NAME ,
+			USER_GENDER ,
+			USER_BIRTH ,
+			USER_PHONE ,
+			USER_ADDRESS
+			)
+		VALUES (
+			SEQ_MEMBER.NEXTVAL,
+			#{userId},
+			#{userPwd},
+			#{userName},
+			#{gender},
+			#{age},
+			#{phone},
+			#{address} 
+			)
+	</insert>
+  	
+  	<!-- 로그인 -->
+  	<select id="loginMember" resultMap="memberResult">
+  		select 
+				USER_NO,
+				USER_ID ,
+				USER_PWD ,
+				USER_NAME ,
+				USER_GENDER ,
+				USER_BIRTH ,
+				USER_PHONE ,
+				USER_ADDRESS
+		   FROM MEMBER
+	   	  WHERE USER_ID = #{uesrId}
+  	</select>
+  	
+  	<!-- 금연신청 했는지 조회 -->
+  	<select id="writerSearch" resultType="_int">
+  		select  
+  				WRITER_NO,
+				USER_NO
+		   FROM WRITER
+	   	  WHERE USER_NO = #{uesrNo}
+  	</select>
+  
+  	<!-- 회원가입 -->
+  	<insert id="insertWriter">
+		INSERT INTO WRITER(
+			WRITER_NO,
+			USER_NO
+			)
+		VALUES (
+			SEQ_WRITER.NEXTVAL,
+			#{userNo}
+			)
+	</insert>
+	
+	<!-- 상품 총 갯수 -->
+	<select id="smokingCount" resultType="_int">
+		SELECT COUNT(*)
+		  FROM WRITER
+	</select>
+	
+	<!--  -->
+	<select id="smokingInsert">
+	
+	</select>
+  </mapper>

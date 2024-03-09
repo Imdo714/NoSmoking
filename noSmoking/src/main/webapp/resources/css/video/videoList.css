@@ -1,0 +1,109 @@
+@charset "UTF-8";
+.video-center{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+.video-No{
+    width: 900px;
+    display: flex;
+}
+.pont-se{
+    font-size: 37px;
+    margin-top: 20px;
+}
+
+.num-btn{
+    background-color: cornsilk;
+    margin: 2px;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+
+.video-up{
+    width: 400px;
+    height: 300px;
+    border-radius: 8%;
+    border: 1px solid black;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-container div {
+    margin-right: 10px; /* 내용과 textarea 사이의 간격 조절 */
+}
+
+textarea {
+    margin-top: 25px;
+    width: 83%;
+    height: 6.25em;
+    resize: none;
+}
+.insert-btn{
+    width: 900px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+}
+.modal-header22{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+
+}
+.modal-title22{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 80px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.modal-header33{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 80px;
+}
+.video_table {
+    width: 60%;
+    border-top: 1px solid #d3d3d3;
+    border-collapse: collapse;
+}
+th { 
+    background-color: #d3d3d3 ; 
+    border-top: 3px solid #727272;
+}
+th, td {
+    border-bottom: 1px solid #d3d3d3;
+    padding: 10px;
+}
+
+
+
+/* 미디어 쿼리: 화면 크기가 600px 이상일 때 설정 */
+@media screen and (max-width: 600px) {
+    .get {
+        width: 30%; /* 화면 크기가 600px 이상일 때 한 줄에 세 개씩 나열 */
+    }
+
+    .video-theme{
+        padding: 0px;
+        
+    }
+    .video-center{
+        width: 600px;
+    }
+    .video-sumnail {
+        width: 163px;
+        height: 127px;
+    }
+    .viedo-title .video-teul {
+        width: 155px;
+    }
+}

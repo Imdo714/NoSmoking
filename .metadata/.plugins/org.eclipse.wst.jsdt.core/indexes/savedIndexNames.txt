@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Class\NoSmoking\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+288907063.index
+2020044036.index
+2498341827.index
+677115572.index
+2494587094.index
+3816086492.index

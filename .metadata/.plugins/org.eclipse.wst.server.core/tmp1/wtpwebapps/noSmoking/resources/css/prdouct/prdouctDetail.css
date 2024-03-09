@@ -1,0 +1,212 @@
+@charset "UTF-8";
+.product-No{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.product-No1{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 500px;
+    margin-right: 80px;
+}
+.product-No2{
+    display: flex;
+    justify-content: center; 
+    border: 1px solid black;
+    border-bottom: none;
+    height: 93px;
+    width: 450px;
+    justify-content: space-between;
+}
+.product-img{
+    width: 500px;
+    height: 480px;
+}
+.product-name{
+    width: 200px;
+    height: 73px;
+}
+.product-heart{
+    width: 150px;
+    height: 73px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 18px;
+}
+span{
+    font-size: 37px;
+}
+.product-price{
+    display: flex;
+    width: 204px;
+    height: 73px;
+    /* display: block; */
+    margin-top: 34px;
+    margin-bottom: 10px;
+}
+.teul{
+    margin-bottom: 10px;
+}
+.product-No3{
+    display: flex;
+    justify-content: center; 
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: none;
+    height: 115px;
+    width: 450px;
+    justify-content: space-between;
+}
+.number-count{
+    width: 100px;
+    height: 35px;
+    /*margin-left: 20px;*/
+}
+.qqq{
+    font-size: 16px;
+    margin-top: 50px;
+}
+.eee{
+    font-size: 16px;
+    margin-left: 15px;
+    margin-top: 17px;
+}
+.price-count{
+    width: 200px;
+    height: 42px;
+}
+.product-No4{
+    display: flex;
+    justify-content: center; 
+    border: 1px solid black;
+    border-top: none;
+    height: 93px;
+    width: 450px;
+}
+
+.product-btn1{
+    width: 150px;
+    height: 40px;
+    background-color: gray;
+    border: none;
+    color: aliceblue;
+    margin-left: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.product-btn{
+    width: 250px;
+    height: 40px;
+    background-color: rgb(52, 152, 219);
+    border: none;
+    margin-top: 20px;
+    color: aliceblue;
+    cursor: pointer;
+}
+.product-good{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.product-Noplus{
+    display: flex;
+    justify-content: center;
+}
+.product-plus{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: space-between;
+    width: 1000px;
+}
+
+.theme{
+    border: 1px solid black;
+    border-radius: 8%;
+    width: 184px;
+    height: 180px;
+}
+.sumnali-img{
+    width: 86px;
+    height: 70px;
+}
+.sumnali-title{
+    margin-top: 38px;
+    margin-left: 18px;
+    margin-right: 10px;
+
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */ 
+}
+.sumnali{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    margin-top: 14px;
+}
+.product-last{
+    display: flex;
+    justify-content: center; 
+    border: 1px solid black;
+    border-top: none;
+    height: 93px;
+    width: 450px;
+    justify-content: space-between;
+}
+
+.heart-checkbox {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+    font-size: 50px;
+}
+
+/* 하트 스타일 */
+label::before {
+    content: '\2661'; /* 빈 하트 */
+    color: #e44d26; /* 하트 색상 */
+}
+
+.heart-checkbox:checked + label::before {
+    content: '\2665'; /* 채워진 하트 */
+}
+
+.Slidesbackground {
+    margin: 0;
+    padding: 0;
+
+}
+.slideshow-image{
+    border-radius:3%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.mySlides {
+    border-radius:3%;
+    width: 658px;
+    height: 438px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+}
+
+.teul-tt{
+	margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 22px;
+}

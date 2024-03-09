@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="productMapper">
+  
+  	<resultMap type="Product" id="productResult">
+		<result column="PRODUCT_NO" property="productNo" />
+		<result column="PRODUCT_NAME" property="productName" />
+		<result column="PRODUCT_CONTENT" property="productContent" />
+		<result column="PRODUCT_PRICE" property="productPrice" />
+	</resultMap>
+	
+	<resultMap type="ProductImg" id="productImgResult">
+		<result column="PRODUCT_IMG_NO" property="productImgNo" />
+		<result column="PRODUCT_URL" property="productUrl" />
+		<result column="PRODUCT_ORGIN_NAME" property="productOrginName" />
+		<result column="PRODUCT_CHANG_NAME" property="productChangName" />
+		<result column="PRODUCT_NO" property="productNo" />
+	</resultMap>
+	
+	<resultMap type="Cart" id="cartResult">
+		<result column="USER_NO" property="userNo" />
+		<result column="PRODUCT_NO" property="productNo" />
+		<result column="CART_COUNT" property="cartCount" />
+	</resultMap>
+	
+	<resultMap type="PAYMENT" id="paymentResult">
+		<result column="USER_NO" property="userNo" />
+		<result column="PAY_POINT" property="payPoint" />
+		<result column="PAY_DAY" property="PayDay" />
+	</resultMap>
+
+	
+	<!-- 상품 등록 -->
+	<insert id="insertProduct">
+		INSERT INTO 
+			   PRODUCT(
+					   PRODUCT_NO,
+					   PRODUCT_NAME,
+					   PRODUCT_CONTENT,
+					   PRODUCT_PRICE
+					   )
+				 VALUES(
+				 		SEQ_PRODUCT.NEXTVAL,
+				 		#{productName},
+				 		#{productContent},
+				 		#{productPrice}
+				 		)
+	</insert>
+
+	<!-- 상품 이미지 등록 -->
+	<insert id="insertProductImg">
+		INSERT INTO 
+			   PRODUCT_IMG(
+					   PRODUCT_IMG_NO,
+					   PRODUCT_URL,
+					   PRODUCT_ORGIN_NAME,
+					   PRODUCT_CHANG_NAME,
+					   PRODUCT_NO
+					   )
+				 VALUES(
+				 		SEQ_PRODUCT_IMG.NEXTVAL,
+				 		#{productUrl},
+				 		#{productOrginName},
+				 		#{productChangName},
+				 		SEQ_PRODUCT.CURRVAL
+				 		)
+	</insert>
+	
+	<!-- 상품 총 갯수 -->
+	<select id="selectListCount" resultType="_int">
+		SELECT COUNT(*)
+		  FROM PRODUCT
+	</select>
+	
+	<!-- 상품 리스트 가져오기 -->
+	<select id="selectProductList" resultMap="productResult">
+		SELECT *
+			FROM(
+			        SELECT ROWNUM RNUM, A.*
+			        FROM (
+			                SELECT PRODUCT_NO
+                                  ,PRODUCT_NAME
+                                  ,PRODUCT_CONTENT
+                                  ,PRODUCT_PRICE
+			                FROM PRODUCT
+			                ORDER BY PRODUCT_NO DESC
+			            ) A
+			        )
+	</select>
+	
+	<!-- 상품 이미지 가져오기 -->
+	<select id="selectProductImg" resultMap="productImgResult">
+		SELECT PRODUCT_IMG_NO,
+			   PRODUCT_URL,
+			   PRODUCT_ORGIN_NAME,
+			   PRODUCT_CHANG_NAME,
+			   PRODUCT_NO
+		  FROM PRODUCT_IMG 
+		 WHERE PRODUCT_NO = #{pNo}
+	</select>
+	
+	<!-- 상품 디테일 정보 가져오기 -->
+	<select id="productDetail" resultMap="productResult">
+		SELECT PRODUCT_NO,
+			   PRODUCT_NAME,
+			   PRODUCT_CONTENT,
+			   PRODUCT_PRICE
+		  FROM PRODUCT
+		 WHERE PRODUCT_NO = #{pNo}
+	</select>
+
+	<!-- 장바구니 등록 -->
+	<insert id="insertCart" parameterType="map">
+		INSERT INTO 
+			   CART(
+			   		USER_NO,
+                    PRODUCT_NO,
+                    CART_COUNT
+					   )
+			 VALUES(
+			 		#{userNo},
+			 		#{productNo},
+			 		#{count}
+			 		)
+	</insert>
+	
+	<!-- 장바구니 리스트 -->
+	<select id="selectCart" resultMap="cartResult">
+		SELECT 
+	          USER_NO,
+	          PRODUCT_NO,
+	          CART_COUNT
+	     FROM CART
+	    WHERE USER_NO = #{userNo}
+	</select>
+	
+	<!-- 장바구니 상품 리스트  -->
+	<select id="selectProduct" resultMap="productResult">
+		SELECT 
+	          PRODUCT_NO,
+	          PRODUCT_NAME,
+	          PRODUCT_CONTENT,
+	          PRODUCT_PRICE
+	     FROM PRODUCT
+	    WHERE PRODUCT_NO = #{productNo}
+	</select>
+	
+	<!-- 장바구니 리스트 -->
+	<select id="selectCartShop" resultType="_int" parameterType="map">
+		SELECT 
+	          USER_NO,
+	          PRODUCT_NO,
+	          CART_COUNT
+	     FROM CART
+	    WHERE USER_NO = #{userNo}
+	      AND PRODUCT_NO = #{productNo}
+	</select>
+	
+	<!-- 장바구니 수량 업데이트 -->
+	<update id="cartUpdateCount">
+		UPDATE CART 
+			   SET 
+			   CART_COUNT = #{count}
+			   WHERE
+			   USER_NO = #{userNo} 
+			   AND
+			   PRODUCT_NO = #{productNo}
+	</update>
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="deleteCart">
+		DELETE FROM CART
+		WHERE
+		USER_NO = #{userNo} 
+	   	AND
+	   	PRODUCT_NO = #{productNo}
+	</delete>
+	
+	<!-- 결제 내역 남기기  -->
+	<insert id="insertPayment" parameterType="map">
+		INSERT INTO 
+			   PAYMENT(
+			   		USER_NO,
+					PAY_POINT,
+					PAY_DAY
+					   )
+			 VALUES(
+			 		#{userNo},
+			 		#{point},
+			 		SYSDATE
+			 		)
+	</insert>
+	
+  </mapper>
