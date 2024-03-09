@@ -31,6 +31,8 @@
 # 오라클 DB
  - 데이터베이스
  - https://github.com/Imdo714/NoSmoking/wiki/%ED%85%8C%EC%9D%B4%EB%B8%94
+ - 더미데이터
+ - https://github.com/Imdo714/NoSmoking/wiki/%EB%8D%94%EB%AF%B8%EB%8D%B0%EC%9D%B4
  - -해당 SQL 적용
 ## 주요 기능
 
