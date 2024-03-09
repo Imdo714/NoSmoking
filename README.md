@@ -30,7 +30,7 @@
 ## 데이터베이스
 # 오라클 DB
  - 데이터베이스
- - [https://github.com/jungseok0815/FinalProject/wiki/SCORE%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%B5%9C%EC%A2%85]
+ - https://github.com/Imdo714/NoSmoking/wiki/%ED%85%8C%EC%9D%B4%EB%B8%94
  - -해당 SQL 적용
 ## 주요 기능
 
